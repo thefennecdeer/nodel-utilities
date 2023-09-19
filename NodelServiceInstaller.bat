@@ -26,7 +26,6 @@ echo:
 echo:               [2] Download Java 8 JDK
 echo:               [3] Download Latest Nodelhost JAR
 echo:               [4] Download Latest Nodel Host Service EXE
-echo:               [5] Download Python 2.5 
 
 
 echo:        _______________________________________________________________________________
@@ -34,14 +33,14 @@ echo:        ___________________________________________________________________
 echo:                                                                     
 call :_color2 %_White% "         " %Underline% "Extras:"
 echo:
-call :_color2 %_White% "               [6] " %_Red% "Uninstall Service"
+call :_color2 %_White% "               [5] " %_Red% "Uninstall Service"
 echo:        _______________________________________________________________________________
 echo:
 echo:
 echo:
 echo:
 echo:
-call :_color2 %_White% "         " %_Green% "Enter a menu option in the keyboard [1, 2, 3, 4, 5, 6]: "
+call :_color2 %_White% "         " %_Green% "Enter a menu option in the keyboard [1, 2, 3, 4, 5]: "
 
 
 choice /C 123456 /N
@@ -49,8 +48,7 @@ choice /C 123456 /N
 set _erl=%errorlevel%
 
 
-if %_erl%==6  setlocal & cls & call :Uninstall                                      & cls & endlocal & goto :MainMenu 
-if %_erl%==5  setlocal & cls & call :DownloadPython                                      & cls & endlocal 
+if %_erl%==5  setlocal & cls & call :Uninstall                                      & cls & endlocal & goto :MainMenu 
 if %_erl%==4  setlocal & cls & call :DownloadNodelService                                      & cls & endlocal
 if %_erl%==3  setlocal & cls & call :DownloadNodelHost                                      & cls & endlocal
 if %_erl%==2  setlocal & cls & call :DownloadJava                                      & cls & endlocal 
@@ -205,11 +203,6 @@ goto :MainMenu
 :DownloadNodelService2
 start https://github.com/museumsvictoria/nodel/tree/master/nodel-windows/service
 goto :DownloadNodelService
-::========================================================================================================================================
-:DownloadPython
-start https://www.python.org/ftp/python/2.5/python-2.5.msi
-goto :MainMenu
-
 ::========================================================================================================================================
 :Uninstall
 SETLOCAL EnableDelayedExpansion
